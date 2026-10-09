@@ -1,0 +1,122 @@
+table _Measures
+	lineageTag: d0b6df28-2574-48a8-a168-e23c4558621c
+
+	measure 'Total Sales' =
+			
+			SUM(customer_shopping_data_clean[price])
+		formatString: #,0.###############\ "€";-#,0.###############\ "€";#,0.###############\ "€"
+		displayFolder: Core KPIs
+		lineageTag: e484e8e0-31d7-4a51-9cde-c86b3d018bae
+
+		annotation PBI_FormatHint = {"currencyCulture":"es-ES"}
+
+	measure 'Total Transactions' =
+			
+			DISTINCTCOUNT(customer_shopping_data_clean[invoice_no])
+		formatString: 0
+		displayFolder: Core KPIs
+		lineageTag: 98ce2435-f9c0-47f9-bd8f-f4d8a7ec2b6c
+
+	measure 'Units Sold' =
+			
+			SUM(customer_shopping_data_clean[quantity])
+		formatString: 0
+		displayFolder: Core KPIs
+		lineageTag: c69e35bf-4c26-4ddd-895c-c7ab4d12c722
+
+	measure 'Average Transaction Value' =
+			
+			DIVIDE(
+			    [Total Sales],
+			    [Total Transactions]
+			)
+		displayFolder: Core KPIs
+		lineageTag: 0070af20-645c-4d59-bbe8-ba6bcffdf736
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Units per Transaction' =
+			
+			DIVIDE(
+			    [Units Sold],
+			    [Total Transactions]
+			)
+		displayFolder: Core KPIs
+		lineageTag: e8c6ec02-0c69-4d1f-929a-c3912c9f8243
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Sales per Unit' =
+			
+			DIVIDE(
+			    [Total Sales],
+			    [Units Sold]
+			)
+		displayFolder: Core KPIs
+		lineageTag: 34cbde7a-84ea-4d21-bd75-e0b8c1776401
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Average Customer Age' =
+			
+			AVERAGE(customer_shopping_data_clean[age])
+		displayFolder: Core KPIs
+		lineageTag: f84b8a8a-029e-4dbb-ad7b-28ea64e56031
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Unique Customers' =
+			DISTINCTCOUNT(customer_shopping_data_clean[customer_id]
+			)
+		formatString: 0
+		displayFolder: Core KPIs
+		lineageTag: 8027baaf-bfe2-416d-8ba5-634fbc0eda3f
+
+	measure 'Mall Rank' =
+			
+			IF(
+			    ISINSCOPE(customer_shopping_data_clean[shopping_mall]),
+			
+			    VAR CurrentSales =
+			        [Total Sales]
+			
+			    VAR Ranking =
+			        RANKX(
+			            ALLSELECTED(customer_shopping_data_clean[shopping_mall]),
+			            [Total Sales],
+			            ,
+			            DESC,
+			            DENSE
+			        )
+			
+			    RETURN
+			        IF(
+			            NOT ISBLANK(CurrentSales),
+			            Ranking
+			        )
+			)
+		displayFolder: Ranking
+		lineageTag: 5a3c8a5a-067a-4c6e-9afe-c92664c487d6
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column 'Columna 1'
+		dataType: string
+		lineageTag: 19512cab-f0e9-46e8-aa76-f7bdd563bc8e
+		summarizeBy: none
+		sourceColumn: Columna 1
+
+		annotation SummarizationSetBy = Automatic
+
+	partition _Measures = m
+		mode: import
+		source =
+				let
+				  Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Columna 1" = _t])
+				in
+				  Origen
+
+	changedProperty = Name
+
+	annotation PBI_ResultType = Table
+

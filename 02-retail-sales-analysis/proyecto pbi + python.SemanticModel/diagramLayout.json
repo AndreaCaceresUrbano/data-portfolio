@@ -1,0 +1,86 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 92.5,
+            "y": 73.75
+          },
+          "nodeIndex": "customer_shopping_data_clean",
+          "nodeLineageTag": "3cc4e0cf-c93c-4388-8756-1181b05ac459",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 5
+        },
+        {
+          "location": {
+            "x": 427,
+            "y": 53
+          },
+          "nodeIndex": "Calendar",
+          "nodeLineageTag": "aa2e6faa-c3f2-40b0-8d48-8ae4ac88ae45",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 2
+        },
+        {
+          "location": {
+            "x": 711,
+            "y": 124.5
+          },
+          "nodeIndex": "_Measures",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 3
+        },
+        {
+          "location": {
+            "x": 707.5,
+            "y": 306.25
+          },
+          "nodeIndex": "Time Calculation",
+          "nodeLineageTag": "da2a9a04-7c7c-4085-9d7e-734991e1e9b0",
+          "size": {
+            "height": 128,
+            "width": 234
+          },
+          "zIndex": 4
+        },
+        {
+          "location": {
+            "x": 88.75,
+            "y": 517.125
+          },
+          "nodeIndex": "Dim Mall",
+          "nodeLineageTag": "6228624b-6bb4-40c7-924c-f3fb21f72bf2",
+          "size": {
+            "height": 200,
+            "width": 234
+          },
+          "zIndex": 1
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 80,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

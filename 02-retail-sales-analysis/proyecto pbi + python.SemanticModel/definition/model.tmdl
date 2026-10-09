@@ -1,0 +1,34 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	discourageImplicitMeasures
+	sourceQueryCulture: es-ES
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["customer_shopping_data_clean","Calendar","_Measures"]
+
+annotation __TEdtr = 1
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table customer_shopping_data_clean
+ref table DateTableTemplate_32c6d35b-8229-420c-b8aa-4e55692ede36
+ref table Calendar
+ref table LocalDateTable_49a2c379-04a3-4bdc-b9ae-b1a9797a0f01
+ref table LocalDateTable_d1a9f912-da14-4e24-8578-3e75c47f5315
+ref table LocalDateTable_2121bb20-856e-42bc-af64-b5df072216e4
+ref table LocalDateTable_13ca00c9-d090-403e-84e5-e7d703d1785f
+ref table LocalDateTable_3155a4bb-fb9c-4b00-8cde-d4530be3372d
+ref table LocalDateTable_84de9431-7262-4b4f-b9a9-63405d19755a
+ref table LocalDateTable_ef3d0b6c-93e0-4d23-91c9-7c9172cf651e
+ref table _Measures
+ref table 'Time Calculation'
+ref table 'Dim Mall'
+
+ref cultureInfo es-ES
+

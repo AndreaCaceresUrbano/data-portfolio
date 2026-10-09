@@ -1,0 +1,155 @@
+table customer_shopping_data_clean
+	lineageTag: 3cc4e0cf-c93c-4388-8756-1181b05ac459
+
+	column invoice_no
+		dataType: string
+		lineageTag: 2ef0f99e-b736-4197-a9de-87c9f8bb57d6
+		summarizeBy: none
+		sourceColumn: invoice_no
+
+		annotation SummarizationSetBy = Automatic
+
+	column customer_id
+		dataType: string
+		lineageTag: 49068056-c6e1-40fd-8fb4-7c1a34097704
+		summarizeBy: none
+		sourceColumn: customer_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column gender
+		dataType: string
+		lineageTag: d2b1376d-de16-480a-ba90-c102d4abd3c3
+		summarizeBy: none
+		sourceColumn: gender
+
+		annotation SummarizationSetBy = Automatic
+
+	column age
+		dataType: string
+		lineageTag: a6e163bc-a7f3-4ee6-ba0b-55b6275f3a92
+		summarizeBy: none
+		sourceColumn: age
+
+		annotation SummarizationSetBy = Automatic
+
+	column category
+		dataType: string
+		lineageTag: 2919df6b-a5f5-443d-abdc-4fe27f6e99ea
+		summarizeBy: none
+		sourceColumn: category
+
+		annotation SummarizationSetBy = Automatic
+
+	column quantity
+		dataType: string
+		lineageTag: b880960a-88f5-43a8-bf9f-358a9f429191
+		summarizeBy: none
+		sourceColumn: quantity
+
+		annotation SummarizationSetBy = Automatic
+
+	column price
+		dataType: double
+		formatString: #,0
+		lineageTag: 1186eb94-1906-491a-8a3c-a8e9306b94b2
+		summarizeBy: sum
+		sourceColumn: price
+
+		annotation SummarizationSetBy = Automatic
+
+	column payment_method
+		dataType: string
+		lineageTag: 1e363871-b085-4718-8a58-4a9a97db2f3d
+		summarizeBy: none
+		sourceColumn: payment_method
+
+		annotation SummarizationSetBy = Automatic
+
+	column invoice_date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: b3427146-691a-45be-9270-c4df66c81ab4
+		summarizeBy: none
+		sourceColumn: invoice_date
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column shopping_mall
+		dataType: string
+		lineageTag: c97c19ea-aa63-4ca4-8fd5-2b5b9b7f8099
+		summarizeBy: none
+		sourceColumn: shopping_mall
+
+		annotation SummarizationSetBy = Automatic
+
+	column year
+		dataType: string
+		lineageTag: d755fe81-1112-4c29-a642-c6313d0f88f5
+		summarizeBy: none
+		sourceColumn: year
+
+		annotation SummarizationSetBy = Automatic
+
+	column month
+		dataType: string
+		lineageTag: e15cf88d-2461-49da-97ba-0e23b6bd0d86
+		summarizeBy: none
+		sourceColumn: month
+
+		annotation SummarizationSetBy = Automatic
+
+	column month_name
+		dataType: string
+		lineageTag: 89a4abec-fa38-4117-ac86-dba723b1148c
+		summarizeBy: none
+		sourceColumn: month_name
+
+		annotation SummarizationSetBy = Automatic
+
+	column quarter
+		dataType: string
+		lineageTag: 8759be95-e5ff-4840-a91d-bf7816f3cf10
+		summarizeBy: none
+		sourceColumn: quarter
+
+		annotation SummarizationSetBy = Automatic
+
+	column day
+		dataType: string
+		lineageTag: 97d57391-9467-4239-9dbd-ee4af6626153
+		summarizeBy: none
+		sourceColumn: day
+
+		annotation SummarizationSetBy = Automatic
+
+	column day_of_week
+		dataType: string
+		lineageTag: fc2f679b-3133-4678-ad23-dc3b8e800dbf
+		summarizeBy: none
+		sourceColumn: day_of_week
+
+		annotation SummarizationSetBy = Automatic
+
+	column age_group
+		dataType: string
+		lineageTag: 2d79c8ee-cd3f-42ed-acbd-eadb2972283c
+		summarizeBy: none
+		sourceColumn: age_group
+
+		annotation SummarizationSetBy = Automatic
+
+	partition customer_shopping_data_clean = m
+		mode: import
+		source =
+				let
+				  Origen = Csv.Document(File.Contents("C:\Users\acace\Downloads\customer_shopping_data_clean.csv"), [Delimiter = ",", Columns = 17, QuoteStyle = QuoteStyle.None]),
+				  #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				  #"Tipo de columna cambiado con configuración regional" = Table.TransformColumnTypes(#"Encabezados promovidos", {{"price", type number}, {"invoice_date", type date}}, "en-US")
+				in
+				  #"Tipo de columna cambiado con configuración regional"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,43 @@
+relationship f5c6fa9d-7b19-4582-b564-11e23efd69ea
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendar.Date
+	toColumn: LocalDateTable_49a2c379-04a3-4bdc-b9ae-b1a9797a0f01.Date
+
+relationship 7174aba2-dbaa-425f-bedf-b4360d6d76e6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendar.'Comienzo de Año'
+	toColumn: LocalDateTable_d1a9f912-da14-4e24-8578-3e75c47f5315.Date
+
+relationship 7a6f7668-e1e0-43c4-b435-f1d07a91e8e8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendar.'Fin de Año'
+	toColumn: LocalDateTable_2121bb20-856e-42bc-af64-b5df072216e4.Date
+
+relationship f121096f-4da3-49d3-b3cf-992369248efc
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendar.'Comienzo de Mes'
+	toColumn: LocalDateTable_13ca00c9-d090-403e-84e5-e7d703d1785f.Date
+
+relationship 81b0bc7d-ab08-4bc6-b50f-be42b217efe6
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendar.'Fin de Mes'
+	toColumn: LocalDateTable_3155a4bb-fb9c-4b00-8cde-d4530be3372d.Date
+
+relationship 16206574-2ad7-49cc-b7eb-41dabc25dba9
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendar.'Comienzo de Trimestre'
+	toColumn: LocalDateTable_84de9431-7262-4b4f-b9a9-63405d19755a.Date
+
+relationship 89b433e1-2e88-4895-8c8c-d627a6129b77
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendar.'Fin de Trimestre'
+	toColumn: LocalDateTable_ef3d0b6c-93e0-4d23-91c9-7c9172cf651e.Date
+
+relationship ab1960c5-8366-8aa2-66b0-398d7e3fea33
+	fromColumn: customer_shopping_data_clean.invoice_date
+	toColumn: Calendar.Date
+
+relationship 949cc4f5-a7a2-b7e5-603e-5f2fcf7b6208
+	fromColumn: customer_shopping_data_clean.shopping_mall
+	toColumn: 'Dim Mall'.shopping_mall
+

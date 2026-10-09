@@ -1,0 +1,77 @@
+table 'Dim Mall'
+	lineageTag: 6228624b-6bb4-40c7-924c-f3fb21f72bf2
+
+	column shopping_mall
+		lineageTag: e887e7ab-bfeb-46ff-8fc9-0fceb71ad203
+		summarizeBy: none
+		isNameInferred
+		sourceColumn: customer_shopping_data_clean[shopping_mall]
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mall Sales' =
+			
+			[Total Sales]
+		formatString: #,0.00
+		lineageTag: a68b1475-dae5-40a9-8bf4-7263c464f643
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cumulated Sales' =
+			
+			VAR CurrentMallSales =
+			    'Dim Mall'[Mall Sales]
+			
+			VAR BetterMalls =
+			    FILTER(
+			        'Dim Mall',
+			        'Dim Mall'[Mall Sales] >= CurrentMallSales
+			    )
+			
+			RETURN
+			    SUMX(
+			        BetterMalls,
+			        'Dim Mall'[Mall Sales]
+			    )
+		formatString: #,0.00
+		lineageTag: 619cb07a-5585-41ac-8dde-c474cd8b74f1
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Cumulated Pct' =
+			
+			DIVIDE(
+			    'Dim Mall'[Cumulated Sales],
+			    SUM('Dim Mall'[Mall Sales])
+			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
+		lineageTag: 53acb334-f9f0-4961-9df9-d8a24cbde863
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'ABC Class' =
+			
+			SWITCH(
+			    TRUE(),
+			    'Dim Mall'[Cumulated Pct] <= 0.7, "A",
+			    'Dim Mall'[Cumulated Pct] <= 0.9, "B",
+			    "C"
+			)
+		lineageTag: c04b44d0-825e-4bf2-9d68-b53c00fbac57
+		summarizeBy: none
+
+		annotation SummarizationSetBy = Automatic
+
+	partition 'Dim Mall' = calculated
+		mode: import
+		source =
+				
+				DISTINCT(
+				    customer_shopping_data_clean[shopping_mall]
+				)
+
+	annotation PBI_Id = a9598e03154f4a9ebec1207ab06ea460
+

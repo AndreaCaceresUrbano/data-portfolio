@@ -1,0 +1,70 @@
+table 'Time Calculation'
+	lineageTag: da2a9a04-7c7c-4085-9d7e-734991e1e9b0
+
+	defaultDetailRowsDefinition = ```
+			SELECTEDMEASURE()
+			
+			```
+
+	calculationGroup
+
+		calculationItem Current = ```
+				SELECTEDMEASURE()
+				
+				```
+
+		calculationItem 'Previous Year' =
+				CALCULATE(
+				    SELECTEDMEASURE(),
+				    SAMEPERIODLASTYEAR('Calendar'[Date])
+				)
+
+		calculationItem YTD =
+				CALCULATE(
+				    SELECTEDMEASURE(),
+				    DATESYTD('Calendar'[Date])
+				)
+
+		calculationItem 'Yoy change' =
+				VAR CurrentValue =
+				    SELECTEDMEASURE()
+				
+				VAR PreviousYearValue =
+				    CALCULATE(
+				        SELECTEDMEASURE(),
+				        SAMEPERIODLASTYEAR('Calendar'[Date])
+				    )
+				
+				RETURN
+				    CurrentValue - PreviousYearValue
+
+		calculationItem 'Yoy %' =
+				VAR CurrentValue =
+				    SELECTEDMEASURE()
+				
+				VAR PreviousYearValue =
+				    CALCULATE(
+				        SELECTEDMEASURE(),
+				        SAMEPERIODLASTYEAR('Calendar'[Date])
+				    )
+				
+				RETURN
+				    DIVIDE(
+				        CurrentValue - PreviousYearValue,
+				        PreviousYearValue
+				    )
+
+			formatStringDefinition = 0.0%
+
+	column 'Time Calculation'
+		dataType: string
+		lineageTag: a85d75d2-f38b-4403-b9f4-ff183d4ed302
+		sourceColumn: Name
+		sortByColumn: Ordinal
+
+	column Ordinal
+		dataType: int64
+		isHidden
+		lineageTag: 21e1e4c4-b09b-4a74-8882-a21b33381696
+		sourceColumn: Ordinal
+

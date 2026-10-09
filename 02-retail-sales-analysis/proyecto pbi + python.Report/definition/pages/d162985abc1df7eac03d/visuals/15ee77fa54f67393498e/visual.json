@@ -1,0 +1,80 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "name": "15ee77fa54f67393498e",
+  "position": {
+    "x": 10,
+    "y": 0,
+    "z": 0,
+    "height": 348.88888888888886,
+    "width": 465.55555555555554,
+    "tabOrder": 0
+  },
+  "visual": {
+    "visualType": "tableEx",
+    "query": {
+      "queryState": {
+        "Values": {
+          "projections": [
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim Mall"
+                    }
+                  },
+                  "Property": "shopping_mall"
+                }
+              },
+              "queryRef": "Dim Mall.shopping_mall",
+              "nativeQueryRef": "shopping_mall"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim Mall"
+                    }
+                  },
+                  "Property": "Mall Sales"
+                }
+              },
+              "queryRef": "Dim Mall.Mall Sales",
+              "nativeQueryRef": "Mall Sales"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim Mall"
+                    }
+                  },
+                  "Property": "Cumulated Pct"
+                }
+              },
+              "queryRef": "Dim Mall.Cumulated Pct",
+              "nativeQueryRef": "Cumulated Pct"
+            },
+            {
+              "field": {
+                "Column": {
+                  "Expression": {
+                    "SourceRef": {
+                      "Entity": "Dim Mall"
+                    }
+                  },
+                  "Property": "ABC Class"
+                }
+              },
+              "queryRef": "Dim Mall.ABC Class",
+              "nativeQueryRef": "ABC Class"
+            }
+          ]
+        }
+      }
+    },
+    "drillFilterOtherVisuals": true
+  }
+}
