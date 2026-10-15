@@ -1,0 +1,96 @@
+table Comparacion_modelos
+	lineageTag: ee601562-ebc1-4b7b-a611-f4a301dff566
+
+	column Modelo
+		dataType: string
+		lineageTag: f154e606-fd1b-4f64-a058-d179d9ad15c5
+		summarizeBy: none
+		sourceColumn: Modelo
+
+		annotation SummarizationSetBy = Automatic
+
+	column Accuracy_media
+		dataType: double
+		lineageTag: a3457274-392b-423b-b3a9-ce54430e2c0d
+		summarizeBy: sum
+		sourceColumn: Accuracy_media
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Accuracy_std
+		dataType: double
+		lineageTag: 98b95543-d2d3-46b9-b7fc-6c3c7f36c1b3
+		summarizeBy: sum
+		sourceColumn: Accuracy_std
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Precision_media
+		dataType: double
+		lineageTag: 0832e4b6-d82a-4ce3-9082-1c7c5c5fb9f1
+		summarizeBy: sum
+		sourceColumn: Precision_media
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column Recall_media
+		dataType: double
+		lineageTag: d1ada630-62f8-49e3-b9d1-f7f791cafe9b
+		summarizeBy: sum
+		sourceColumn: Recall_media
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column F1_media
+		dataType: double
+		lineageTag: 4c7da7ed-8fe4-4ba1-baf7-18fbc0394210
+		summarizeBy: sum
+		sourceColumn: F1_media
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ROC_AUC_media
+		dataType: double
+		lineageTag: 19ecd028-fff8-4e75-857d-f7373fcc3b77
+		summarizeBy: sum
+		sourceColumn: ROC_AUC_media
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column ROC_AUC_std
+		dataType: double
+		lineageTag: f9ed06e7-10cd-4a71-b71b-23340807f182
+		summarizeBy: sum
+		sourceColumn: ROC_AUC_std
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Comparacion_modelos = m
+		mode: import
+		source =
+				let
+				  Origen = Excel.Workbook(File.Contents("C:\Users\acace\Downloads\resultados_modelo_predictivo_TFM_CORREGIDO.xlsx"), null, false),
+				  Comparacion_modelos_sheet = Origen{[Item = "Comparacion_modelos", Kind = "Sheet"]}[Data],
+				  #"Filtrar contenido nulo y espacios en blanco" = each List.Select(_, each _ <> null and (not (_ is text) or Text.Trim(_) <> "")),
+				  #"Filas inferiores quitadas" = Table.RemoveLastN(Comparacion_modelos_sheet, each try List.IsEmpty(List.Skip(#"Filtrar contenido nulo y espacios en blanco"(Record.FieldValues(_)), 1)) otherwise false),
+				  #"Encabezados promovidos" = Table.PromoteHeaders(#"Filas inferiores quitadas", [PromoteAllScalars = true]),
+				  #"Tipo de columna cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos", {{"Accuracy_media", type number}, {"Accuracy_std", type number}, {"Precision_media", type number}, {"Recall_media", type number}, {"F1_media", type number}, {"ROC_AUC_media", type number}, {"ROC_AUC_std", type number}}, "es")
+				in
+				  #"Tipo de columna cambiado"
+
+	annotation PBI_ResultType = Table
+

@@ -1,0 +1,47 @@
+table _Medidas
+	lineageTag: 9d398649-d88d-46c1-8410-12adbacf7610
+
+	measure 'Municipios Analizados' =
+			
+			DISTINCTCOUNT('Dim_Municipio'[codigo_ine])
+		formatString: 0
+		lineageTag: 1fa6b2db-f80f-450a-babd-934950d9f4f7
+
+	measure 'Probabilidad Media Riesgo Alto' =
+			
+			AVERAGE(
+			    'Fact_RiesgoIncendio'[probabilidad_riesgo_alto]
+			)
+		lineageTag: 780f338f-644c-4940-b354-eb2549bef8f8
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Municipios Riesgo Alto' =
+			
+			CALCULATE(
+			    DISTINCTCOUNT('Fact_RiesgoIncendio'[codigo_ine]),
+			    'Fact_RiesgoIncendio'[prediccion_riesgo_alto] = 1
+			)
+		formatString: 0
+		lineageTag: 46962fae-05ae-4c4c-9a16-b2a0b152faf5
+
+	measure 'Temperatura Media Verano' =
+			
+			AVERAGE(
+			    'Fact_RiesgoIncendio'[temp_maxima_media_verano_aemet]
+			)
+		lineageTag: 34d2befe-fd04-4007-baca-5d20e6afe60d
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition _Medidas = m
+		mode: import
+		source =
+				let
+				  Origen = Table.FromRows(Json.Document(Binary.Decompress(Binary.FromText("i44FAA==", BinaryEncoding.Base64), Compression.Deflate)), let _t = ((type nullable text) meta [Serialized.Text = true]) in type table [#"Columna 1" = _t]),
+				    #"Columnas quitadas" = Table.RemoveColumns(Origen,{"Columna 1"})
+				in
+				  #"Columnas quitadas"
+
+	annotation PBI_ResultType = Table
+

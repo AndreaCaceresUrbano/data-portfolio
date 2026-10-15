@@ -1,0 +1,36 @@
+table Importancia_variables
+	lineageTag: b618bc29-8cf5-4371-afb8-a246220c7dcb
+
+	column variable
+		dataType: string
+		lineageTag: 78fc76f7-cec9-4fc3-aa12-549368d73650
+		summarizeBy: none
+		sourceColumn: variable
+
+		annotation SummarizationSetBy = Automatic
+
+	column importancia
+		dataType: double
+		lineageTag: 5cb2fba2-d7d0-46df-ae38-b0a4c4df74e2
+		summarizeBy: sum
+		sourceColumn: importancia
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Importancia_variables = m
+		mode: import
+		source =
+				let
+				  Origen = Excel.Workbook(File.Contents("C:\Users\acace\Downloads\resultados_modelo_predictivo_TFM_CORREGIDO.xlsx"), null, false),
+				  Importancia_variables_sheet = Origen{[Item = "Importancia_variables", Kind = "Sheet"]}[Data],
+				  #"Filtrar contenido nulo y espacios en blanco" = each List.Select(_, each _ <> null and (not (_ is text) or Text.Trim(_) <> "")),
+				  #"Filas inferiores quitadas" = Table.RemoveLastN(Importancia_variables_sheet, each try List.IsEmpty(List.Skip(#"Filtrar contenido nulo y espacios en blanco"(Record.FieldValues(_)), 1)) otherwise false),
+				  #"Encabezados promovidos" = Table.PromoteHeaders(#"Filas inferiores quitadas", [PromoteAllScalars = true]),
+				  #"Tipo de columna cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos", {{"importancia", type number}}, "es")
+				in
+				  #"Tipo de columna cambiado"
+
+	annotation PBI_ResultType = Table
+

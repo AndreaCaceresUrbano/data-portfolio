@@ -1,0 +1,11 @@
+{
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/gitIntegration/platformProperties/2.0.0/schema.json",
+  "metadata": {
+    "type": "SemanticModel",
+    "displayName": "Modelo semántico TFM"
+  },
+  "config": {
+    "version": "2.0",
+    "logicalId": "a54197b1-1e64-4380-b158-90bd251ec156"
+  }
+}

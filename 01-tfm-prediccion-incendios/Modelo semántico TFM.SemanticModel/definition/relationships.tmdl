@@ -1,0 +1,54 @@
+relationship 8444c474-b9d3-48fa-9a3c-b7eb10f0a790
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Fact_RiesgoIncendio.aemet_fecha_descarga
+	toColumn: LocalDateTable_9879ed3b-907a-4786-a5b9-d537dfbf3132.Date
+
+relationship 584d7098-48f7-033d-786e-bf4e1b7ba5d0
+	fromColumn: Fact_RiesgoIncendio.codigo_ine
+	toColumn: Dim_Municipio.codigo_ine
+
+relationship 33c0c009-d8cb-4aec-baec-4298581b839f
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.Date
+	toColumn: LocalDateTable_170a70be-88b9-4e99-b915-c26dcd1f54a4.Date
+
+relationship 70de9b48-8039-44ca-82c0-d1f4712b77db
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.'Inicio Año'
+	toColumn: LocalDateTable_da4242d5-75e9-4f59-a11b-d5c6a2fea7fc.Date
+
+relationship e26882a8-b96c-4c15-85a8-7aa5a324d662
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.'Fin Año'
+	toColumn: LocalDateTable_8eee96cd-b1c2-4a49-a859-aba4ceafd797.Date
+
+relationship 8134b267-5f7d-4489-b233-62b5351726be
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.'Inicio Trimestre'
+	toColumn: LocalDateTable_d5bc9b73-b516-4a7c-bd13-c64b0609029c.Date
+
+relationship 1327070b-17cb-4f5c-af3a-aa82f540040e
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.'Fin Trimestre'
+	toColumn: LocalDateTable_4b6291c8-723a-45e7-869a-c3ba2eeb17d6.Date
+
+relationship f1e3ab81-b03d-44fd-966a-7f5c465de374
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.'Inicio Mes'
+	toColumn: LocalDateTable_1280b7ca-73be-4938-b1ae-cbf7d123185f.Date
+
+relationship c7b35654-6b3f-4e6f-b791-fb587da19ab8
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.'Fin Mes'
+	toColumn: LocalDateTable_b17263c1-1c6a-4799-ab82-0607bfd0c5ce.Date
+
+relationship e2b0aa22-8d2e-4cbf-8ba3-e36ce56ef372
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.'Inicio Semana'
+	toColumn: LocalDateTable_f729e6e0-ceb4-41f5-95fb-8c53bac1c674.Date
+
+relationship ff9916b0-09cf-409c-b9c8-c116d7f3aaf0
+	joinOnDateBehavior: datePartOnly
+	fromColumn: Calendario.'Fin Semana'
+	toColumn: LocalDateTable_2b66daf4-bf7e-4cf8-9427-f12575862a50.Date
+

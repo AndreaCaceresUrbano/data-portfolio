@@ -1,0 +1,425 @@
+table Fact_RiesgoIncendio
+	lineageTag: 157d0633-44e6-431a-92b4-ce8e6934226f
+
+	column id_muestra
+		dataType: int64
+		formatString: 0
+		lineageTag: 42ab91dc-837e-4637-956d-4448269d2b55
+		summarizeBy: sum
+		sourceColumn: id_muestra
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_ine
+		dataType: int64
+		formatString: 0
+		lineageTag: 1d0fd98c-20f8-4e50-8565-2a3eab6d7725
+		summarizeBy: none
+		sourceColumn: codigo_ine
+
+		annotation SummarizationSetBy = Automatic
+
+	column municipio
+		dataType: string
+		lineageTag: a66bd8f1-e370-4bc5-b8f0-f5f64b3c837c
+		summarizeBy: none
+		sourceColumn: municipio
+
+		annotation SummarizationSetBy = Automatic
+
+	column provincia
+		dataType: string
+		lineageTag: bb68da5d-dc7f-4075-b321-0939bca2ac61
+		summarizeBy: none
+		sourceColumn: provincia
+
+		annotation SummarizationSetBy = Automatic
+
+	column cluster_inicial_muestra
+		dataType: string
+		lineageTag: d88fd044-9de0-446a-b5e0-9b4e83118cca
+		summarizeBy: none
+		sourceColumn: cluster_inicial_muestra
+
+		annotation SummarizationSetBy = Automatic
+
+	column poblacion_base
+		dataType: int64
+		formatString: 0
+		lineageTag: 13c8bac3-d683-4c97-aa2a-44a7fb8b8da3
+		summarizeBy: sum
+		sourceColumn: poblacion_base
+
+		annotation SummarizationSetBy = Automatic
+
+	column num_incendios_2014_2024
+		dataType: int64
+		formatString: 0
+		lineageTag: 09446110-9949-491c-8d40-53ad718d052a
+		summarizeBy: sum
+		sourceColumn: num_incendios_2014_2024
+
+		annotation SummarizationSetBy = Automatic
+
+	column ha_quemadas_2014_2024
+		dataType: int64
+		formatString: 0
+		lineageTag: 3785b800-a29e-4d15-89db-58bdbdb1f1b8
+		summarizeBy: sum
+		sourceColumn: ha_quemadas_2014_2024
+
+		annotation SummarizationSetBy = Automatic
+
+	column temp_media_verano_aemet
+		dataType: int64
+		formatString: 0
+		lineageTag: 6f4f11ec-6cbb-45e8-8ae2-6f81fde73811
+		summarizeBy: sum
+		sourceColumn: temp_media_verano_aemet
+
+		annotation SummarizationSetBy = Automatic
+
+	column temp_maxima_media_verano_aemet
+		dataType: int64
+		formatString: 0
+		lineageTag: ac36c364-91a4-45b7-abbe-53cdf0684d66
+		summarizeBy: sum
+		sourceColumn: temp_maxima_media_verano_aemet
+
+		annotation SummarizationSetBy = Automatic
+
+	column humedad_media_verano_aemet
+		dataType: int64
+		formatString: 0
+		lineageTag: 0aa7f9db-0672-4ed0-87a4-7d371d4d02f8
+		summarizeBy: sum
+		sourceColumn: humedad_media_verano_aemet
+
+		annotation SummarizationSetBy = Automatic
+
+	column precipitacion_verano_media_aemet
+		dataType: int64
+		formatString: 0
+		lineageTag: 66bdcf12-0fe9-4266-9e9b-c73525243e4a
+		summarizeBy: sum
+		sourceColumn: precipitacion_verano_media_aemet
+
+		annotation SummarizationSetBy = Automatic
+
+	column velocidad_viento_media_aemet
+		dataType: int64
+		formatString: 0
+		lineageTag: 7433d765-12d8-43d2-aa6e-a228dbb2fed5
+		summarizeBy: sum
+		sourceColumn: velocidad_viento_media_aemet
+
+		annotation SummarizationSetBy = Automatic
+
+	column dias_sin_lluvia_estimados_aemet
+		dataType: int64
+		formatString: 0
+		lineageTag: 9d9818a5-d8ec-4805-82b0-e7d4356bbf35
+		summarizeBy: sum
+		sourceColumn: dias_sin_lluvia_estimados_aemet
+
+		annotation SummarizationSetBy = Automatic
+
+	column pct_masa_forestal
+		dataType: int64
+		formatString: 0
+		lineageTag: abef124c-d609-450e-b17e-dbe95054565e
+		summarizeBy: sum
+		sourceColumn: pct_masa_forestal
+
+		annotation SummarizationSetBy = Automatic
+
+	column pct_agricola
+		dataType: int64
+		formatString: 0
+		lineageTag: 512e07aa-3f31-4c05-8739-66b32f538ffa
+		summarizeBy: sum
+		sourceColumn: pct_agricola
+
+		annotation SummarizationSetBy = Automatic
+
+	column pct_matorral
+		dataType: int64
+		formatString: 0
+		lineageTag: 4a63964e-c9a1-428c-8d7b-d13658b2c254
+		summarizeBy: sum
+		sourceColumn: pct_matorral
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_vegetacion_dominante
+		dataType: string
+		lineageTag: 59f8d202-9939-4e9f-9c13-4cd458ddf3a1
+		summarizeBy: none
+		sourceColumn: tipo_vegetacion_dominante
+
+		annotation SummarizationSetBy = Automatic
+
+	column continuidad_forestal
+		dataType: int64
+		formatString: 0
+		lineageTag: f425221f-bbd4-4be5-bb7f-12cb7ac7b521
+		summarizeBy: sum
+		sourceColumn: continuidad_forestal
+
+		annotation SummarizationSetBy = Automatic
+
+	column cedefo_mas_cercano
+		dataType: string
+		lineageTag: da58bd1d-11be-4cd0-9730-634a3761f5d7
+		summarizeBy: none
+		sourceColumn: cedefo_mas_cercano
+
+		annotation SummarizationSetBy = Automatic
+
+	column distancia_cedefo_km
+		dataType: int64
+		formatString: 0
+		lineageTag: 2dbf9641-9599-4eba-a35e-de20232b9ed9
+		summarizeBy: sum
+		sourceColumn: distancia_cedefo_km
+
+		annotation SummarizationSetBy = Automatic
+
+	column num_cedefo_50km
+		dataType: int64
+		formatString: 0
+		lineageTag: a1444e15-4bbf-43d8-9e76-111bdffea7be
+		summarizeBy: sum
+		sourceColumn: num_cedefo_50km
+
+		annotation SummarizationSetBy = Automatic
+
+	column indice_incidencia_historica
+		dataType: int64
+		formatString: 0
+		lineageTag: 2b74ee2c-f9b5-4829-a92d-3655d70c50e2
+		summarizeBy: sum
+		sourceColumn: indice_incidencia_historica
+
+		annotation SummarizationSetBy = Automatic
+
+	column indice_riesgo_climatico
+		dataType: int64
+		formatString: 0
+		lineageTag: 9dd5de18-b20c-46a8-8cfc-49049a253fe0
+		summarizeBy: sum
+		sourceColumn: indice_riesgo_climatico
+
+		annotation SummarizationSetBy = Automatic
+
+	column indice_vulnerabilidad_territorial
+		dataType: int64
+		formatString: 0
+		lineageTag: e732e200-9043-4024-84e0-1f11d021acb4
+		summarizeBy: sum
+		sourceColumn: indice_vulnerabilidad_territorial
+
+		annotation SummarizationSetBy = Automatic
+
+	column indice_cobertura_operativa
+		dataType: int64
+		formatString: 0
+		lineageTag: 483d1b1b-231a-4311-a242-12e7df391263
+		summarizeBy: sum
+		sourceColumn: indice_cobertura_operativa
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipologia_territorial
+		dataType: string
+		lineageTag: 33b05ede-d553-4929-9cf8-ac9a02ac152a
+		summarizeBy: none
+		sourceColumn: tipologia_territorial
+
+		annotation SummarizationSetBy = Automatic
+
+	column riesgo_alto_binario
+		dataType: int64
+		formatString: 0
+		lineageTag: 8dfc60b9-70a0-4942-a177-3fac67a63c2f
+		summarizeBy: sum
+		sourceColumn: riesgo_alto_binario
+
+		annotation SummarizationSetBy = Automatic
+
+	column score_riesgo_0_100
+		dataType: int64
+		formatString: 0
+		lineageTag: 46dde83a-6e6b-4a9b-959a-8b8df65953ac
+		summarizeBy: sum
+		sourceColumn: score_riesgo_0_100
+
+		annotation SummarizationSetBy = Automatic
+
+	column nivel_riesgo_final
+		dataType: string
+		lineageTag: 8b75c69a-ff6f-4b4d-b319-daa24e5c6731
+		summarizeBy: none
+		sourceColumn: nivel_riesgo_final
+
+		annotation SummarizationSetBy = Automatic
+
+	column nivel_riesgo_final_por_percentiles
+		dataType: string
+		lineageTag: b84942a1-e485-46eb-80b9-dcbd3e774208
+		summarizeBy: none
+		sourceColumn: nivel_riesgo_final_por_percentiles
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitud
+		dataType: int64
+		formatString: 0
+		lineageTag: 8e1f24fa-b264-4b4f-bc6a-9d319d447340
+		summarizeBy: sum
+		sourceColumn: latitud
+
+		annotation SummarizationSetBy = Automatic
+
+	column longitud
+		dataType: int64
+		formatString: 0
+		lineageTag: 8f081d3a-8860-40b2-8cb1-9cf516cb9eff
+		summarizeBy: sum
+		sourceColumn: longitud
+
+		annotation SummarizationSetBy = Automatic
+
+	column aemet_estacion_indicativo
+		dataType: string
+		lineageTag: 73cb2512-428d-4d14-901f-98437dcdef4f
+		summarizeBy: none
+		sourceColumn: aemet_estacion_indicativo
+
+		annotation SummarizationSetBy = Automatic
+
+	column aemet_estacion_nombre
+		dataType: string
+		lineageTag: 09898bca-f6f5-42ff-97ce-ff7bc6466fd3
+		summarizeBy: none
+		sourceColumn: aemet_estacion_nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column aemet_estacion_provincia
+		dataType: string
+		lineageTag: 52302e45-8afb-4bff-bb67-20f9127dd05f
+		summarizeBy: none
+		sourceColumn: aemet_estacion_provincia
+
+		annotation SummarizationSetBy = Automatic
+
+	column aemet_distancia_estacion_km
+		dataType: int64
+		formatString: 0
+		lineageTag: f951c424-d7e6-44af-8d5f-08a41fa7bc2a
+		summarizeBy: sum
+		sourceColumn: aemet_distancia_estacion_km
+
+		annotation SummarizationSetBy = Automatic
+
+	column aemet_fecha_descarga
+		dataType: dateTime
+		formatString: General Date
+		lineageTag: 96ce72f3-31b3-48ab-93e4-1ffec6d14dbd
+		summarizeBy: none
+		sourceColumn: aemet_fecha_descarga
+
+		variation Variación
+			isDefault
+			relationship: 8444c474-b9d3-48fa-9a3c-b7eb10f0a790
+			defaultHierarchy: LocalDateTable_9879ed3b-907a-4786-a5b9-d537dfbf3132.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+	column cluster_territorial_id
+		dataType: int64
+		formatString: 0
+		lineageTag: 998df7d1-e265-48ae-bee2-2facca1ffd3e
+		summarizeBy: sum
+		sourceColumn: cluster_territorial_id
+
+		annotation SummarizationSetBy = Automatic
+
+	column cluster_silhouette
+		dataType: int64
+		formatString: 0
+		lineageTag: e51dd3ca-19c1-4ef1-a4e0-47acb9ac630b
+		summarizeBy: sum
+		sourceColumn: cluster_silhouette
+
+		annotation SummarizationSetBy = Automatic
+
+	column riesgo_real
+		dataType: int64
+		formatString: 0
+		lineageTag: 7b9a5d8f-d617-49e5-95b7-0b4bd6fca4f7
+		summarizeBy: sum
+		sourceColumn: riesgo_real
+
+		annotation SummarizationSetBy = Automatic
+
+	column probabilidad_riesgo_alto
+		dataType: double
+		lineageTag: a88a2cbf-c505-4e96-970f-ad237e012f91
+		summarizeBy: sum
+		sourceColumn: probabilidad_riesgo_alto
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column prediccion_riesgo_alto
+		dataType: int64
+		formatString: 0
+		lineageTag: c99883ac-a658-496d-8bf1-a250ef325c0a
+		summarizeBy: sum
+		sourceColumn: prediccion_riesgo_alto
+
+		annotation SummarizationSetBy = Automatic
+
+	column acierto
+		dataType: string
+		lineageTag: 5ba9d06b-3c5b-492d-9960-5c1412dc61f5
+		summarizeBy: none
+		sourceColumn: acierto
+
+		annotation SummarizationSetBy = Automatic
+
+	column nivel_riesgo_modelo
+		dataType: string
+		lineageTag: 1c390e61-5b9c-4f7c-86af-8550c8907de6
+		summarizeBy: none
+		sourceColumn: nivel_riesgo_modelo
+
+		annotation SummarizationSetBy = Automatic
+
+	column ClaveMunicipio
+		dataType: string
+		lineageTag: e4cd8c03-c83c-43a6-8495-98abde7ca8b7
+		summarizeBy: none
+		sourceColumn: ClaveMunicipio
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Fact_RiesgoIncendio = m
+		mode: import
+		source =
+				let
+				  Origen = Csv.Document(File.Contents("C:\Users\acace\Downloads\DATASET 25 JUNIO_LIMPIO.csv"), [Delimiter = ",", Columns = 43, Encoding = 65001, QuoteStyle = QuoteStyle.None]),
+				  #"Encabezados promovidos" = Table.PromoteHeaders(Origen, [PromoteAllScalars = true]),
+				  #"Tipo de columna cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos", {{"id_muestra", Int64.Type}, {"codigo_ine", Int64.Type}, {"municipio", type text}, {"provincia", type text}, {"cluster_inicial_muestra", type text}, {"poblacion_base", Int64.Type}, {"num_incendios_2014_2024", Int64.Type}, {"ha_quemadas_2014_2024", Int64.Type}, {"temp_media_verano_aemet", Int64.Type}, {"temp_maxima_media_verano_aemet", Int64.Type}, {"humedad_media_verano_aemet", Int64.Type}, {"precipitacion_verano_media_aemet", Int64.Type}, {"velocidad_viento_media_aemet", Int64.Type}, {"dias_sin_lluvia_estimados_aemet", Int64.Type}, {"pct_masa_forestal", Int64.Type}, {"pct_agricola", Int64.Type}, {"pct_matorral", Int64.Type}, {"tipo_vegetacion_dominante", type text}, {"continuidad_forestal", Int64.Type}, {"cedefo_mas_cercano", type text}, {"distancia_cedefo_km", Int64.Type}, {"num_cedefo_50km", Int64.Type}, {"indice_incidencia_historica", Int64.Type}, {"indice_riesgo_climatico", Int64.Type}, {"indice_vulnerabilidad_territorial", Int64.Type}, {"indice_cobertura_operativa", Int64.Type}, {"tipologia_territorial", type text}, {"riesgo_alto_binario", Int64.Type}, {"score_riesgo_0_100", Int64.Type}, {"nivel_riesgo_final", type text}, {"nivel_riesgo_final_por_percentiles", type text}, {"latitud", Int64.Type}, {"longitud", Int64.Type}, {"aemet_estacion_indicativo", type text}, {"aemet_estacion_nombre", type text}, {"aemet_estacion_provincia", type text}, {"aemet_distancia_estacion_km", Int64.Type}, {"aemet_fecha_descarga", type datetime}, {"cluster_territorial_id", Int64.Type}, {"cluster_silhouette", Int64.Type}, {"prediccion_riesgo_alto_rf_cv", Int64.Type}, {"probabilidad_riesgo_alto_rf_cv", Int64.Type}, {"resultado_prediccion_rf_cv", type text}}, "es"),
+				  #"Consultas combinadas" = Table.NestedJoin(#"Tipo de columna cambiado", {"municipio", "provincia"}, Predicciones_RF, {"municipio", "provincia"}, "Predicciones_RF", JoinKind.LeftOuter),
+				  #"Predicciones_RF expandido" = Table.ExpandTableColumn(#"Consultas combinadas", "Predicciones_RF", {"riesgo_real", "probabilidad_riesgo_alto", "prediccion_riesgo_alto", "acierto", "nivel_riesgo_modelo"}, {"riesgo_real", "probabilidad_riesgo_alto", "prediccion_riesgo_alto", "acierto", "nivel_riesgo_modelo"}),
+				  #"Columnas quitadas" = Table.RemoveColumns(#"Predicciones_RF expandido", {"prediccion_riesgo_alto_rf_cv", "probabilidad_riesgo_alto_rf_cv", "resultado_prediccion_rf_cv"}),
+				  #"Personalizado agregado" = Table.TransformColumnTypes(Table.AddColumn(#"Columnas quitadas", "ClaveMunicipio", each Text.Upper(Text.Trim([municipio])) & "|" & Text.Upper(Text.Trim([provincia]))), {{"ClaveMunicipio", type text}})
+				in
+				  #"Personalizado agregado"
+
+	annotation PBI_ResultType = Table
+

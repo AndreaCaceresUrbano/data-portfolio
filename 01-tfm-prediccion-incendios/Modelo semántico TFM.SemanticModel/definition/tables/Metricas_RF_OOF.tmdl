@@ -1,0 +1,36 @@
+table Metricas_RF_OOF
+	lineageTag: dac6dd13-a589-48e6-a655-bcfd883cae64
+
+	column Metrica
+		dataType: string
+		lineageTag: 2a7534dd-6f91-4a7f-8a98-e61778fa6437
+		summarizeBy: none
+		sourceColumn: Metrica
+
+		annotation SummarizationSetBy = Automatic
+
+	column Valor
+		dataType: double
+		lineageTag: 38ca2ec6-e66d-488e-b306-7affc1b7c2e5
+		summarizeBy: sum
+		sourceColumn: Valor
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Metricas_RF_OOF = m
+		mode: import
+		source =
+				let
+				  Origen = Excel.Workbook(File.Contents("C:\Users\acace\Downloads\resultados_modelo_predictivo_TFM_CORREGIDO.xlsx"), null, false),
+				  Metricas_RF_OOF_sheet = Origen{[Item = "Metricas_RF_OOF", Kind = "Sheet"]}[Data],
+				  #"Filtrar contenido nulo y espacios en blanco" = each List.Select(_, each _ <> null and (not (_ is text) or Text.Trim(_) <> "")),
+				  #"Filas inferiores quitadas" = Table.RemoveLastN(Metricas_RF_OOF_sheet, each try List.IsEmpty(List.Skip(#"Filtrar contenido nulo y espacios en blanco"(Record.FieldValues(_)), 1)) otherwise false),
+				  #"Encabezados promovidos" = Table.PromoteHeaders(#"Filas inferiores quitadas", [PromoteAllScalars = true]),
+				  #"Tipo de columna cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos", {{"Valor", type number}}, "es")
+				in
+				  #"Tipo de columna cambiado"
+
+	annotation PBI_ResultType = Table
+

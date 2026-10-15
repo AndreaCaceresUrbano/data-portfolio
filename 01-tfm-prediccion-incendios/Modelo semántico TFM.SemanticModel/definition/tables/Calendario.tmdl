@@ -1,0 +1,592 @@
+table Calendario
+	lineageTag: 69ea9091-6f8f-4437-9a16-28f337968c34
+
+	column Date
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: ef50c02c-da4e-43f8-847b-1da2228839c7
+		summarizeBy: none
+		sourceColumn: Date
+
+		variation Variación
+			isDefault
+			relationship: 33c0c009-d8cb-4aec-baec-4298581b839f
+			defaultHierarchy: LocalDateTable_170a70be-88b9-4e99-b915-c26dcd1f54a4.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Año
+		dataType: int64
+		formatString: 0
+		lineageTag: 0a5506be-f39a-4495-a069-503c024b9808
+		summarizeBy: sum
+		sourceColumn: Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inicio Año'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: cbb80a55-a656-4261-8d0a-12231bbf99bb
+		summarizeBy: none
+		sourceColumn: Inicio Año
+
+		variation Variación
+			isDefault
+			relationship: 70de9b48-8039-44ca-82c0-d1f4712b77db
+			defaultHierarchy: LocalDateTable_da4242d5-75e9-4f59-a11b-d5c6a2fea7fc.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Fin Año'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 81085da7-2691-450d-b3c0-2f49a7ec4e74
+		summarizeBy: none
+		sourceColumn: Fin Año
+
+		variation Variación
+			isDefault
+			relationship: e26882a8-b96c-4c15-85a8-7aa5a324d662
+			defaultHierarchy: LocalDateTable_8eee96cd-b1c2-4a49-a859-aba4ceafd797.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Trimestre Nº'
+		dataType: int64
+		formatString: 0
+		lineageTag: 4e61eaae-4aa0-451d-94fa-a50423e6b59d
+		summarizeBy: sum
+		sourceColumn: Trimestre Nº
+
+		annotation SummarizationSetBy = Automatic
+
+	column Trimestre
+		dataType: string
+		lineageTag: 268da15d-c5d3-47f2-9320-a6ebde105406
+		summarizeBy: none
+		sourceColumn: Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Año Trimestre'
+		dataType: string
+		lineageTag: 52ee04d6-99af-4efe-8b5c-495883f7eae6
+		summarizeBy: none
+		sourceColumn: Año Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inicio Trimestre'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 5a2328af-9283-4a49-a223-094363cd0805
+		summarizeBy: none
+		sourceColumn: Inicio Trimestre
+
+		variation Variación
+			isDefault
+			relationship: 8134b267-5f7d-4489-b233-62b5351726be
+			defaultHierarchy: LocalDateTable_d5bc9b73-b516-4a7c-bd13-c64b0609029c.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Fin Trimestre'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 9b979c35-e3f2-4e4b-8156-26c508b90424
+		summarizeBy: none
+		sourceColumn: Fin Trimestre
+
+		variation Variación
+			isDefault
+			relationship: 1327070b-17cb-4f5c-af3a-aa82f540040e
+			defaultHierarchy: LocalDateTable_4b6291c8-723a-45e7-869a-c3ba2eeb17d6.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Mes
+		dataType: int64
+		formatString: 0
+		lineageTag: bf1f233a-403d-404b-b687-b37d1788700f
+		summarizeBy: sum
+		sourceColumn: Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nombre Mes'
+		dataType: string
+		lineageTag: 3e3b6671-1da9-4fb1-8f68-4ea0ffe2b3ea
+		summarizeBy: none
+		sourceColumn: Nombre Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes Corto'
+		dataType: string
+		lineageTag: 091e227d-45b6-4806-a9b8-28096756a7bd
+		summarizeBy: none
+		sourceColumn: Mes Corto
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes Año'
+		dataType: string
+		lineageTag: bab570f0-ff26-46fb-ac92-a3756b53a3c2
+		summarizeBy: none
+		sourceColumn: Mes Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Año Mes'
+		dataType: string
+		lineageTag: 78178daf-6fec-47f2-b0e3-931c93db55f8
+		summarizeBy: none
+		sourceColumn: Año Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes Año (orden)'
+		dataType: int64
+		formatString: 0
+		lineageTag: b90f6564-c949-4703-a00b-e9883876d24e
+		summarizeBy: sum
+		sourceColumn: Mes Año (orden)
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inicio Mes'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 3db07cb4-bf93-44ba-877d-8d37ea40de0d
+		summarizeBy: none
+		sourceColumn: Inicio Mes
+
+		variation Variación
+			isDefault
+			relationship: f1e3ab81-b03d-44fd-966a-7f5c465de374
+			defaultHierarchy: LocalDateTable_1280b7ca-73be-4938-b1ae-cbf7d123185f.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Fin Mes'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 7f2ae0c3-98d1-47d3-8e5b-e886e85d3ee8
+		summarizeBy: none
+		sourceColumn: Fin Mes
+
+		variation Variación
+			isDefault
+			relationship: c7b35654-6b3f-4e6f-b791-fb587da19ab8
+			defaultHierarchy: LocalDateTable_b17263c1-1c6a-4799-ab82-0607bfd0c5ce.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Semana
+		dataType: int64
+		formatString: 0
+		lineageTag: 2c6f5b7c-41df-42d7-9464-efeda4c49002
+		summarizeBy: sum
+		sourceColumn: Semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Inicio Semana'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: bf1dcb98-0cc6-4be0-b1e6-e9fc1948c913
+		summarizeBy: none
+		sourceColumn: Inicio Semana
+
+		variation Variación
+			isDefault
+			relationship: e2b0aa22-8d2e-4cbf-8ba3-e36ce56ef372
+			defaultHierarchy: LocalDateTable_f729e6e0-ceb4-41f5-95fb-8c53bac1c674.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column 'Fin Semana'
+		dataType: dateTime
+		formatString: Long Date
+		lineageTag: 4fba2a98-c46e-491b-ab87-6696ac89c7be
+		summarizeBy: none
+		sourceColumn: Fin Semana
+
+		variation Variación
+			isDefault
+			relationship: ff9916b0-09cf-409c-b9c8-c116d7f3aaf0
+			defaultHierarchy: LocalDateTable_2b66daf4-bf7e-4cf8-9427-f12575862a50.'Jerarquía de fechas'
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation UnderlyingDateTimeDataType = Date
+
+	column Día
+		dataType: int64
+		formatString: 0
+		lineageTag: c041857b-546c-4389-a959-28d34a71d383
+		summarizeBy: sum
+		sourceColumn: Día
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Día Semana Nº'
+		dataType: int64
+		formatString: 0
+		lineageTag: 52c389e4-b1ef-4fdb-a7d0-3e7b642b5fe9
+		summarizeBy: sum
+		sourceColumn: Día Semana Nº
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Nombre Día'
+		dataType: string
+		lineageTag: 4ee90f4b-8cdd-418a-8bdc-77731b097f86
+		summarizeBy: none
+		sourceColumn: Nombre Día
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Fin de Semana'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 5ab63d13-7781-41c0-a92d-1a102a313931
+		summarizeBy: none
+		sourceColumn: Fin de Semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column DateKey
+		dataType: int64
+		formatString: 0
+		lineageTag: c0f66d09-bc39-4df8-b973-54bb667c5be0
+		summarizeBy: count
+		sourceColumn: DateKey
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Offset Año'
+		dataType: int64
+		formatString: 0
+		lineageTag: 055a6067-4713-4260-8087-3c1a755590bb
+		summarizeBy: sum
+		sourceColumn: Offset Año
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Offset Trimestre'
+		dataType: int64
+		formatString: 0
+		lineageTag: f060d5cf-54aa-4bfc-a658-8b5bfb5e66e7
+		summarizeBy: sum
+		sourceColumn: Offset Trimestre
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Offset Mes'
+		dataType: int64
+		formatString: 0
+		lineageTag: d81b83bd-d4f2-44eb-a729-920560769663
+		summarizeBy: sum
+		sourceColumn: Offset Mes
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Offset Semana'
+		dataType: int64
+		formatString: 0
+		lineageTag: 1192c7fa-8b2b-425d-ac70-220d3b9a1a6b
+		summarizeBy: sum
+		sourceColumn: Offset Semana
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Offset Día'
+		dataType: int64
+		formatString: 0
+		lineageTag: eee980fb-a32f-45ab-bc0d-4688c88506a8
+		summarizeBy: sum
+		sourceColumn: Offset Día
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Año Actual'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 674e098d-3e6c-44da-b8f4-4a5991073539
+		summarizeBy: none
+		sourceColumn: Año Actual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes Actual'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: b420f607-f8fc-4423-8974-c8bfffb42058
+		summarizeBy: none
+		sourceColumn: Mes Actual
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Año Anterior'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: a989b48b-9796-4f7f-895c-053a1ccecdd9
+		summarizeBy: none
+		sourceColumn: Año Anterior
+
+		annotation SummarizationSetBy = Automatic
+
+	column 'Mes Anterior'
+		dataType: boolean
+		formatString: """TRUE"";""TRUE"";""FALSE"""
+		lineageTag: 8f14c785-0b9d-4a1c-b5ad-b7c2a25c80ca
+		summarizeBy: none
+		sourceColumn: Mes Anterior
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Calendario = m
+		mode: import
+		source =
+				let
+				    // CONFIGURACIÓN DEL CALENDARIO
+				    StartYear = 1980,
+				    EndYear = Date.Year(DateTime.LocalNow()),
+				    Today = Date.From(DateTime.LocalNow()),
+				
+				    StartDate = #date(StartYear, 1, 1),
+				    EndDate = #date(EndYear, 12, 31),
+				    NumberOfDays = Duration.Days(EndDate - StartDate) + 1,
+				
+				    DateList = List.Dates(
+				        StartDate,
+				        NumberOfDays,
+				        #duration(1, 0, 0, 0)
+				    ),
+				
+				    Source = Table.FromList(
+				        DateList,
+				        Splitter.SplitByNothing(),
+				        {"Date"}
+				    ),
+				
+				    ChangedType = Table.TransformColumnTypes(
+				        Source,
+				        {{"Date", type date}}
+				    ),
+				
+				    // AÑO
+				    AddYear = Table.AddColumn(
+				        ChangedType, "Año",
+				        each Date.Year([Date]), Int64.Type
+				    ),
+				
+				    AddStartYear = Table.AddColumn(
+				        AddYear, "Inicio Año",
+				        each Date.StartOfYear([Date]), type date
+				    ),
+				
+				    AddEndYear = Table.AddColumn(
+				        AddStartYear, "Fin Año",
+				        each Date.EndOfYear([Date]), type date
+				    ),
+				
+				    // TRIMESTRE
+				    AddQuarter = Table.AddColumn(
+				        AddEndYear, "Trimestre Nº",
+				        each Date.QuarterOfYear([Date]), Int64.Type
+				    ),
+				
+				    AddQuarterName = Table.AddColumn(
+				        AddQuarter, "Trimestre",
+				        each "T" & Text.From([Trimestre Nº]), type text
+				    ),
+				
+				    AddYearQuarter = Table.AddColumn(
+				        AddQuarterName, "Año Trimestre",
+				        each Text.From([Año]) & "-T" &
+				             Text.From([Trimestre Nº]), type text
+				    ),
+				
+				    AddStartQuarter = Table.AddColumn(
+				        AddYearQuarter, "Inicio Trimestre",
+				        each Date.StartOfQuarter([Date]), type date
+				    ),
+				
+				    AddEndQuarter = Table.AddColumn(
+				        AddStartQuarter, "Fin Trimestre",
+				        each Date.EndOfQuarter([Date]), type date
+				    ),
+				
+				    // MES
+				    AddMonth = Table.AddColumn(
+				        AddEndQuarter, "Mes",
+				        each Date.Month([Date]), Int64.Type
+				    ),
+				
+				    AddMonthName = Table.AddColumn(
+				        AddMonth, "Nombre Mes",
+				        each Date.MonthName([Date], "es-ES"), type text
+				    ),
+				
+				    AddMonthShort = Table.AddColumn(
+				        AddMonthName, "Mes Corto",
+				        each Date.ToText([Date], "MMM", "es-ES"), type text
+				    ),
+				
+				    AddMonthYear = Table.AddColumn(
+				        AddMonthShort, "Mes Año",
+				        each Date.ToText([Date], "MMM yyyy", "es-ES"),
+				        type text
+				    ),
+				
+				    AddYearMonth = Table.AddColumn(
+				        AddMonthYear, "Año Mes",
+				        each Date.ToText([Date], "yyyy-MM"), type text
+				    ),
+				
+				    AddMonthYearOrder = Table.AddColumn(
+				        AddYearMonth, "Mes Año (orden)",
+				        each [Año] * 100 + [Mes], Int64.Type
+				    ),
+				
+				    AddStartMonth = Table.AddColumn(
+				        AddMonthYearOrder, "Inicio Mes",
+				        each Date.StartOfMonth([Date]), type date
+				    ),
+				
+				    AddEndMonth = Table.AddColumn(
+				        AddStartMonth, "Fin Mes",
+				        each Date.EndOfMonth([Date]), type date
+				    ),
+				
+				    // SEMANA
+				    AddWeek = Table.AddColumn(
+				        AddEndMonth, "Semana",
+				        each Date.WeekOfYear([Date], Day.Monday),
+				        Int64.Type
+				    ),
+				
+				    AddStartWeek = Table.AddColumn(
+				        AddWeek, "Inicio Semana",
+				        each Date.StartOfWeek([Date], Day.Monday),
+				        type date
+				    ),
+				
+				    AddEndWeek = Table.AddColumn(
+				        AddStartWeek, "Fin Semana",
+				        each Date.EndOfWeek([Date], Day.Monday),
+				        type date
+				    ),
+				
+				    // DÍA
+				    AddDay = Table.AddColumn(
+				        AddEndWeek, "Día",
+				        each Date.Day([Date]), Int64.Type
+				    ),
+				
+				    AddDayWeek = Table.AddColumn(
+				        AddDay, "Día Semana Nº",
+				        each Date.DayOfWeek([Date], Day.Monday) + 1,
+				        Int64.Type
+				    ),
+				
+				    AddDayName = Table.AddColumn(
+				        AddDayWeek, "Nombre Día",
+				        each Date.DayOfWeekName([Date], "es-ES"),
+				        type text
+				    ),
+				
+				    AddWeekend = Table.AddColumn(
+				        AddDayName, "Fin de Semana",
+				        each [Día Semana Nº] >= 6, type logical
+				    ),
+				
+				    // CLAVE FECHA
+				    AddDateKey = Table.AddColumn(
+				        AddWeekend, "DateKey",
+				        each [Año] * 10000 + [Mes] * 100 + [Día],
+				        Int64.Type
+				    ),
+				
+				    // OFFSETS DINÁMICOS
+				    AddYearOffset = Table.AddColumn(
+				        AddDateKey, "Offset Año",
+				        each [Año] - Date.Year(Today), Int64.Type
+				    ),
+				
+				    AddQuarterOffset = Table.AddColumn(
+				        AddYearOffset, "Offset Trimestre",
+				        each ([Año] - Date.Year(Today)) * 4 +
+				             [Trimestre Nº] - Date.QuarterOfYear(Today),
+				        Int64.Type
+				    ),
+				
+				    AddMonthOffset = Table.AddColumn(
+				        AddQuarterOffset, "Offset Mes",
+				        each ([Año] - Date.Year(Today)) * 12 +
+				             [Mes] - Date.Month(Today),
+				        Int64.Type
+				    ),
+				
+				    AddWeekOffset = Table.AddColumn(
+				        AddMonthOffset, "Offset Semana",
+				        each Number.IntegerDivide(
+				            Duration.Days(
+				                [Inicio Semana] -
+				                Date.StartOfWeek(Today, Day.Monday)
+				            ), 7
+				        ),
+				        Int64.Type
+				    ),
+				
+				    AddDayOffset = Table.AddColumn(
+				        AddWeekOffset, "Offset Día",
+				        each Duration.Days([Date] - Today),
+				        Int64.Type
+				    ),
+				
+				    // SELECTORES DINÁMICOS
+				    AddCurrentYear = Table.AddColumn(
+				        AddDayOffset, "Año Actual",
+				        each [Año] = Date.Year(Today), type logical
+				    ),
+				
+				    AddCurrentMonth = Table.AddColumn(
+				        AddCurrentYear, "Mes Actual",
+				        each [Offset Mes] = 0, type logical
+				    ),
+				
+				    AddPreviousYear = Table.AddColumn(
+				        AddCurrentMonth, "Año Anterior",
+				        each [Offset Año] = -1, type logical
+				    ),
+				
+				    AddPreviousMonth = Table.AddColumn(
+				        AddPreviousYear, "Mes Anterior",
+				        each [Offset Mes] = -1, type logical
+				    )
+				
+				in
+				    AddPreviousMonth
+
+	annotation PBI_ResultType = Table
+

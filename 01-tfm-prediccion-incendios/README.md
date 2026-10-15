@@ -17,3 +17,20 @@ Proyecto de Trabajo Fin de Máster centrado en la predicción del riesgo de ince
 - Modelo semántico en Power BI
 - Dashboard de análisis de riesgo
 - Dashboard de rendimiento del modelo
+
+## Power BI Dashboard
+
+An interactive Power BI dashboard was developed to explore wildfire risk, predictions and key indicators.
+
+The report includes:
+
+- Geographic visualization of wildfire risk
+- Predicted risk analysis
+- Temporal analysis
+- Key KPIs and indicators
+- Interactive filtering
+- Semantic model developed in Power BI
+
+## Project format
+
+The Power BI project is stored using the PBIP format to improve version control and allow changes to the report and semantic model to be tracked in GitHub.

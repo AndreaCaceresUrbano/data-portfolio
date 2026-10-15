@@ -1,0 +1,79 @@
+table Predicciones_RF
+	lineageTag: 7ec043a9-9c21-4402-b363-802827a2a1b1
+
+	column municipio
+		dataType: string
+		lineageTag: 39df3f4b-b55d-4471-af7d-a9f3f67d1c9a
+		summarizeBy: none
+		sourceColumn: municipio
+
+		annotation SummarizationSetBy = Automatic
+
+	column provincia
+		dataType: string
+		lineageTag: 6a3c31cc-22cd-4f2c-8ee0-f446b0b29790
+		summarizeBy: none
+		sourceColumn: provincia
+
+		annotation SummarizationSetBy = Automatic
+
+	column riesgo_real
+		dataType: int64
+		formatString: 0
+		lineageTag: 50fea326-84f2-4abd-9f34-33ad586e5843
+		summarizeBy: sum
+		sourceColumn: riesgo_real
+
+		annotation SummarizationSetBy = Automatic
+
+	column probabilidad_riesgo_alto
+		dataType: double
+		lineageTag: dfee32ca-27e9-418a-ae38-e60da59cb018
+		summarizeBy: sum
+		sourceColumn: probabilidad_riesgo_alto
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column prediccion_riesgo_alto
+		dataType: int64
+		formatString: 0
+		lineageTag: 03697061-181f-45eb-a229-e66065b124e5
+		summarizeBy: sum
+		sourceColumn: prediccion_riesgo_alto
+
+		annotation SummarizationSetBy = Automatic
+
+	column acierto
+		dataType: string
+		lineageTag: c6dbca46-1a6c-4cf2-9c6b-45b4168c863e
+		summarizeBy: none
+		sourceColumn: acierto
+
+		annotation SummarizationSetBy = Automatic
+
+	column nivel_riesgo_modelo
+		dataType: string
+		lineageTag: da3e9ae6-8811-433c-a861-2690bdef913d
+		summarizeBy: none
+		sourceColumn: nivel_riesgo_modelo
+
+		annotation SummarizationSetBy = Automatic
+
+	partition Predicciones_RF = m
+		mode: import
+		source =
+				let
+				  Origen = Excel.Workbook(File.Contents("C:\Users\acace\Downloads\resultados_modelo_predictivo_TFM_CORREGIDO.xlsx"), null, false),
+				  Predicciones_RF_sheet = Origen{[Item = "Predicciones_RF", Kind = "Sheet"]}[Data],
+				  #"Filtrar contenido nulo y espacios en blanco" = each List.Select(_, each _ <> null and (not (_ is text) or Text.Trim(_) <> "")),
+				  #"Filas inferiores quitadas" = Table.RemoveLastN(Predicciones_RF_sheet, each try List.IsEmpty(List.Skip(#"Filtrar contenido nulo y espacios en blanco"(Record.FieldValues(_)), 1)) otherwise false),
+				  #"Columnas con nombre cambiado" = Table.RenameColumns(#"Filas inferiores quitadas", {{"Column2", "Columna3"}}),
+				  #"Encabezados promovidos" = Table.PromoteHeaders(#"Columnas con nombre cambiado", [PromoteAllScalars = true]),
+				  #"Tipo de columna cambiado" = Table.TransformColumnTypes(#"Encabezados promovidos", {{"riesgo_real", Int64.Type}, {"probabilidad_riesgo_alto", type number}, {"prediccion_riesgo_alto", Int64.Type}}, "es")
+				in
+				  #"Tipo de columna cambiado"
+
+	annotation PBI_ResultType = Table
+

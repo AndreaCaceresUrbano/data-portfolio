@@ -1,0 +1,182 @@
+{
+  "version": "1.1.0",
+  "diagrams": [
+    {
+      "ordinal": 0,
+      "scrollPosition": {
+        "x": 8.4087702310544987,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 948.25,
+            "y": 0
+          },
+          "nodeIndex": "Comparacion_modelos",
+          "nodeLineageTag": "ee601562-ebc1-4b7b-a611-f4a301dff566",
+          "size": {
+            "height": 287,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 236.25,
+            "y": 10
+          },
+          "nodeIndex": "Metricas_RF_OOF",
+          "nodeLineageTag": "dac6dd13-a589-48e6-a655-bcfd883cae64",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 522.75,
+            "y": 612.75
+          },
+          "nodeIndex": "Predicciones_RF",
+          "nodeLineageTag": "7ec043a9-9c21-4402-b363-802827a2a1b1",
+          "size": {
+            "height": 269.02192557763624,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 172.75,
+            "y": 398.25
+          },
+          "nodeIndex": "Importancia_variables",
+          "nodeLineageTag": "b618bc29-8cf5-4371-afb8-a246220c7dcb",
+          "size": {
+            "height": 145,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 571.75,
+            "y": 103.75
+          },
+          "nodeIndex": "Fact_RiesgoIncendio",
+          "nodeLineageTag": "157d0633-44e6-431a-92b4-ce8e6934226f",
+          "size": {
+            "height": 395.25,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1093.5,
+            "y": 380.25
+          },
+          "nodeIndex": "Dim_Municipio",
+          "nodeLineageTag": "0cae3a99-0d08-4997-bf3e-118e762c7733",
+          "size": {
+            "height": 375.67893207949044,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1347.3213215295873,
+            "y": 33.8603829482425
+          },
+          "nodeIndex": "Calendario",
+          "nodeLineageTag": "69ea9091-6f8f-4437-9a16-28f337968c34",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        },
+        {
+          "location": {
+            "x": 1393.0803937846663,
+            "y": 463.86416401572075
+          },
+          "nodeIndex": "_Medidas",
+          "nodeLineageTag": "9d398649-d88d-46c1-8410-12adbacf7610",
+          "size": {
+            "height": 104,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Todas las tablas",
+      "zoomValue": 71.354072416455736,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 1,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 432,
+            "y": 195
+          },
+          "nodeIndex": "Calendario",
+          "nodeLineageTag": "69ea9091-6f8f-4437-9a16-28f337968c34",
+          "size": {
+            "height": 300,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Tabla calendario",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    },
+    {
+      "ordinal": 2,
+      "scrollPosition": {
+        "x": 0,
+        "y": 0
+      },
+      "nodes": [
+        {
+          "location": {
+            "x": 409,
+            "y": 155
+          },
+          "nodeIndex": "_Medidas",
+          "nodeLineageTag": "9d398649-d88d-46c1-8410-12adbacf7610",
+          "size": {
+            "height": 176,
+            "width": 234
+          },
+          "zIndex": 0
+        }
+      ],
+      "name": "Medidas",
+      "zoomValue": 100,
+      "pinKeyFieldsToTop": false,
+      "showExtraHeaderInfo": false,
+      "hideKeyFieldsWhenCollapsed": false,
+      "tablesLocked": false
+    }
+  ],
+  "selectedDiagram": "Todas las tablas",
+  "defaultDiagram": "Todas las tablas"
+}

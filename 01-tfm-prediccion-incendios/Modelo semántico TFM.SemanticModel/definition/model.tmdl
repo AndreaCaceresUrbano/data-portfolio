@@ -1,0 +1,37 @@
+model Model
+	culture: es-ES
+	defaultPowerBIDataSourceVersion: powerBI_V3
+	sourceQueryCulture: es-ES
+	valueFilterBehavior: independent
+	dataAccessOptions
+		legacyRedirects
+		returnErrorValuesAsNull
+
+annotation __PBI_TimeIntelligenceEnabled = 1
+
+annotation PBI_QueryOrder = ["Fact_RiesgoIncendio","Comparacion_modelos","Metricas_RF_OOF","Predicciones_RF","Importancia_variables","Dim_Municipio","Calendario","_Medidas"]
+
+annotation PBI_ProTooling = ["DevMode"]
+
+ref table Fact_RiesgoIncendio
+ref table DateTableTemplate_17726114-0883-485d-9e27-b24f9f738d15
+ref table LocalDateTable_9879ed3b-907a-4786-a5b9-d537dfbf3132
+ref table Comparacion_modelos
+ref table Metricas_RF_OOF
+ref table Predicciones_RF
+ref table Importancia_variables
+ref table Dim_Municipio
+ref table Calendario
+ref table LocalDateTable_170a70be-88b9-4e99-b915-c26dcd1f54a4
+ref table LocalDateTable_da4242d5-75e9-4f59-a11b-d5c6a2fea7fc
+ref table LocalDateTable_8eee96cd-b1c2-4a49-a859-aba4ceafd797
+ref table LocalDateTable_d5bc9b73-b516-4a7c-bd13-c64b0609029c
+ref table LocalDateTable_4b6291c8-723a-45e7-869a-c3ba2eeb17d6
+ref table LocalDateTable_1280b7ca-73be-4938-b1ae-cbf7d123185f
+ref table LocalDateTable_b17263c1-1c6a-4799-ab82-0607bfd0c5ce
+ref table LocalDateTable_f729e6e0-ceb4-41f5-95fb-8c53bac1c674
+ref table LocalDateTable_2b66daf4-bf7e-4cf8-9427-f12575862a50
+ref table _Medidas
+
+ref cultureInfo es-ES
+

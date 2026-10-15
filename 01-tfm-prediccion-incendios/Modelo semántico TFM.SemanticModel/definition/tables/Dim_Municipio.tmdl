@@ -1,0 +1,143 @@
+table Dim_Municipio
+	lineageTag: 0cae3a99-0d08-4997-bf3e-118e762c7733
+
+	column id_muestra
+		dataType: int64
+		formatString: 0
+		lineageTag: d1fed31e-2a95-4b0f-9091-796c19a96a53
+		summarizeBy: none
+		sourceColumn: id_muestra
+
+		annotation SummarizationSetBy = Automatic
+
+	column codigo_ine
+		dataType: int64
+		formatString: 0
+		lineageTag: 5e285496-b7f3-4cc1-af89-7ee505a5c0f0
+		summarizeBy: none
+		sourceColumn: codigo_ine
+
+		annotation SummarizationSetBy = Automatic
+
+	column municipio
+		dataType: string
+		lineageTag: 27ffe9eb-b8c4-43c0-8601-54be07bbdc05
+		dataCategory: City
+		summarizeBy: none
+		sourceColumn: municipio
+
+		annotation SummarizationSetBy = Automatic
+
+	column provincia
+		dataType: string
+		lineageTag: 58ae4773-a45d-4f35-8239-c3fd765fdc59
+		summarizeBy: none
+		sourceColumn: provincia
+
+		annotation SummarizationSetBy = Automatic
+
+	column poblacion_base
+		dataType: int64
+		formatString: 0
+		lineageTag: 6798daa0-c705-4402-9832-59a9fd4f6aac
+		summarizeBy: none
+		sourceColumn: poblacion_base
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipo_vegetacion_dominante
+		dataType: string
+		lineageTag: bf1b1b34-00e1-4ba3-8c08-0d8d06fa7eb8
+		summarizeBy: none
+		sourceColumn: tipo_vegetacion_dominante
+
+		annotation SummarizationSetBy = Automatic
+
+	column cedefo_mas_cercano
+		dataType: string
+		lineageTag: 1d250a9e-0ebb-4497-94b8-c1038aacce1d
+		summarizeBy: none
+		sourceColumn: cedefo_mas_cercano
+
+		annotation SummarizationSetBy = Automatic
+
+	column tipologia_territorial
+		dataType: string
+		lineageTag: 078c2cf3-430a-443e-91aa-a91a7c6f323d
+		summarizeBy: none
+		sourceColumn: tipologia_territorial
+
+		annotation SummarizationSetBy = Automatic
+
+	column latitud
+		dataType: int64
+		formatString: 0
+		lineageTag: 0a0d4c73-9032-41d8-8322-face7258cd3a
+		summarizeBy: none
+		sourceColumn: latitud
+
+		annotation SummarizationSetBy = Automatic
+
+	column longitud
+		dataType: int64
+		formatString: 0
+		lineageTag: c4261370-37be-4183-b535-27caa65744fb
+		summarizeBy: none
+		sourceColumn: longitud
+
+		annotation SummarizationSetBy = Automatic
+
+	column aemet_estacion_nombre
+		dataType: string
+		lineageTag: 0c9b4b81-59d4-4ae8-a2b9-3f2a3e01fdcf
+		summarizeBy: none
+		sourceColumn: aemet_estacion_nombre
+
+		annotation SummarizationSetBy = Automatic
+
+	column LatitudMapa
+		dataType: double
+		lineageTag: 293e66a1-2c26-46f5-aba2-0cd37b2a1f4e
+		summarizeBy: none
+		sourceColumn: LatitudMapa
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	column LongitudMapa
+		dataType: double
+		lineageTag: 9eaf5c31-969f-45a9-a847-118414bf4129
+		summarizeBy: none
+		sourceColumn: LongitudMapa
+
+		annotation SummarizationSetBy = Automatic
+
+		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	partition Dim_Municipio = m
+		mode: import
+		source =
+				let
+				  Origen = Fact_RiesgoIncendio,
+				  #"Columnas quitadas" = Table.RemoveColumns(Origen, {"cluster_inicial_muestra", "num_incendios_2014_2024", "ha_quemadas_2014_2024", "temp_media_verano_aemet", "temp_maxima_media_verano_aemet", "humedad_media_verano_aemet", "precipitacion_verano_media_aemet", "velocidad_viento_media_aemet", "dias_sin_lluvia_estimados_aemet", "pct_masa_forestal", "pct_agricola", "pct_matorral", "continuidad_forestal", "distancia_cedefo_km", "num_cedefo_50km", "indice_incidencia_historica", "indice_riesgo_climatico", "indice_vulnerabilidad_territorial", "indice_cobertura_operativa", "riesgo_alto_binario", "score_riesgo_0_100", "nivel_riesgo_final", "nivel_riesgo_final_por_percentiles", "aemet_estacion_indicativo", "aemet_estacion_provincia", "aemet_distancia_estacion_km", "aemet_fecha_descarga", "cluster_territorial_id", "cluster_silhouette", "riesgo_real", "probabilidad_riesgo_alto", "prediccion_riesgo_alto", "acierto", "nivel_riesgo_modelo", "ClaveMunicipio"}),
+				  #"Duplicados quitados" = Table.Distinct(#"Columnas quitadas", {"codigo_ine"}),
+				  #"Personalizado agregado" = Table.AddColumn(#"Duplicados quitados", "Personalizado", each if [latitud] = null then null
+				else
+				let
+				    n = Number.From([latitud])
+				in
+				    n / Number.Power(10, Text.Length(Text.From(Number.Abs(n))) - 2)),
+				  #"Personalizado agregado 1" = Table.AddColumn(#"Personalizado agregado", "LongitudMapa", each if [longitud] = null then null
+				else
+				let
+				    n = Number.From([longitud])
+				in
+				    n / Number.Power(10, Text.Length(Text.From(Number.Abs(n))) - 1)),
+				  #"Tipo de columna cambiado" = Table.TransformColumnTypes(#"Personalizado agregado 1", {{"Personalizado", type number}, {"LongitudMapa", type number}}),
+				  #"Columnas con nombre cambiado 1" = Table.RenameColumns(#"Tipo de columna cambiado", {{"Personalizado", "LatitudMapa"}})
+				in
+				  #"Columnas con nombre cambiado 1"
+
+	annotation PBI_ResultType = Table
+
