@@ -20,13 +20,13 @@
                 "Column": {
                   "Expression": {
                     "SourceRef": {
-                      "Entity": "Fact_RiesgoIncendio"
+                      "Entity": "Predicciones_RF"
                     }
                   },
                   "Property": "nivel_riesgo_modelo"
                 }
               },
-              "queryRef": "Fact_RiesgoIncendio.nivel_riesgo_modelo",
+              "queryRef": "Predicciones_RF.nivel_riesgo_modelo",
               "nativeQueryRef": "nivel_riesgo_modelo",
               "active": true
             }
@@ -60,11 +60,11 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "Municipios Analizados"
+                  "Property": "Municipios por Nivel Riesgo"
                 }
               },
-              "queryRef": "_Medidas.Municipios Analizados",
-              "nativeQueryRef": "Municipios Analizados"
+              "queryRef": "_Medidas.Municipios por Nivel Riesgo",
+              "nativeQueryRef": "Municipios por Nivel Riesgo"
             }
           ]
         }
@@ -79,7 +79,7 @@
                     "Entity": "_Medidas"
                   }
                 },
-                "Property": "Municipios Analizados"
+                "Property": "Municipios por Nivel Riesgo"
               }
             },
             "direction": "Descending"

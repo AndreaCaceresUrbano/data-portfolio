@@ -1,5 +1,5 @@
 {
-  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.13.0/schema.json",
+  "$schema": "https://developer.microsoft.com/json-schemas/fabric/item/report/definition/visualContainer/2.3.0/schema.json",
   "name": "a3a2dbfb66cd54ab0a99",
   "position": {
     "x": 0,
@@ -60,11 +60,11 @@
                       "Entity": "_Medidas"
                     }
                   },
-                  "Property": "Probabilidad Media Riesgo Alto"
+                  "Property": "Municipios por Nivel Riesgo"
                 }
               },
-              "queryRef": "_Medidas.Probabilidad Media Riesgo Alto",
-              "nativeQueryRef": "Probabilidad Media Riesgo Alto"
+              "queryRef": "_Medidas.Municipios por Nivel Riesgo",
+              "nativeQueryRef": "Municipios por Nivel Riesgo"
             }
           ]
         },
@@ -72,17 +72,22 @@
           "projections": [
             {
               "field": {
-                "Measure": {
+                "Aggregation": {
                   "Expression": {
-                    "SourceRef": {
-                      "Entity": "_Medidas"
+                    "Column": {
+                      "Expression": {
+                        "SourceRef": {
+                          "Entity": "Predicciones_RF"
+                        }
+                      },
+                      "Property": "nivel_riesgo_modelo"
                     }
                   },
-                  "Property": "Municipios Analizados"
+                  "Function": 5
                 }
               },
-              "queryRef": "_Medidas.Municipios Analizados",
-              "nativeQueryRef": "Municipios Analizados"
+              "queryRef": "CountNonNull(Predicciones_RF.nivel_riesgo_modelo)",
+              "nativeQueryRef": "Recuento de nivel_riesgo_modelo"
             }
           ]
         }
@@ -91,13 +96,18 @@
         "sort": [
           {
             "field": {
-              "Measure": {
+              "Aggregation": {
                 "Expression": {
-                  "SourceRef": {
-                    "Entity": "_Medidas"
+                  "Column": {
+                    "Expression": {
+                      "SourceRef": {
+                        "Entity": "Predicciones_RF"
+                      }
+                    },
+                    "Property": "nivel_riesgo_modelo"
                   }
                 },
-                "Property": "Municipios Analizados"
+                "Function": 5
               }
             },
             "direction": "Descending"

@@ -12,9 +12,8 @@ table _Medidas
 			AVERAGE(
 			    'Fact_RiesgoIncendio'[probabilidad_riesgo_alto]
 			)
+		formatString: 0.00\ %;-0.00\ %;0.00\ %
 		lineageTag: 780f338f-644c-4940-b354-eb2549bef8f8
-
-		annotation PBI_FormatHint = {"isGeneralNumber":true}
 
 	measure 'Municipios Riesgo Alto' =
 			
@@ -33,6 +32,14 @@ table _Medidas
 		lineageTag: 34d2befe-fd04-4007-baca-5d20e6afe60d
 
 		annotation PBI_FormatHint = {"isGeneralNumber":true}
+
+	measure 'Municipios por Nivel Riesgo' =
+			
+			DISTINCTCOUNT(
+			    'Predicciones_RF'[municipio]
+			)
+		formatString: 0
+		lineageTag: 0a49ebfc-898e-4a1c-ba55-787780c34065
 
 	partition _Medidas = m
 		mode: import
